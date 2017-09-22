@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.75px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.highlight {
+    stroke: khaki;
+    stroke-width: 3px;
+}
+
+.search {
+	width: 100%;
+}
+
+body {
+	font: 10px sans-serif;
+}
+
+#titleNote {
+	position: fixed;
+	top: 0px; left: 250px
+	padding: 10px;
+	width: 50%;
+	text-align: center;
+	font-weight: bold
+	font: 14px sans-serif;
+}
+
+#titleNote {
+	position: fixed;
+	left: 250px; top: 0px;
+	top: 0px; 
+	padding: 10px;
+	text-align: center;
+	font: 14px sans-serif;
+}
+
+#detailsWrapper {
+    position: fixed;
+    right: 20px; bottom: 10px;
+    text-align: right;
+    padding: 10px;
+    border-radius: 15px;
+	font: 10px sans-serif;
+}
+#details {
+    position: relative;
+    width: 500px;
+    font-size: 12px;
+	font: 10px sans-serif;
+}
+#searchWrapper {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+	font-size: 1.1em;
+}
+
+#search {
+    font-size: 1.1em;
+}
+
+#searchResults {
+    padding: 10px;
+    text-align: right;
+    font-size: 1em;
+    color: black;
+    width: 400px;
+}
+
+#dateRefreshedWrapper {
+    position: fixed;
+    left: 20px; bottom: 10px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#dateRefreshed {
+    position: relative;
+    width: 500px;
+    font-size: 10px;
+}
+
+#version {
+	color: red;
+	font-weight: normal
+}
+
+#CatalogSelector {
+	font-weight: normal
+	font: 10px sans-serif;
+	font-size: 10px;
+}
+
+#resetButton {
+    cursor: pointer;
+    float: left;
+    position: relative;
+    width: 17px;
+    left: 213px;
+    top: -1px;
+}
+
+
+
+</style>
+<head>
+<title>Game of Thrones Chart</title>
+<link rel="icon" type="image/png" href="resources/favicon.png" >
+</head>
+<body>
+Use the drop down to filter products by "Status"<br>
+<select id="CatalogSelector" onchange="treeSelector(this.value)">
+ <!-- <option value="0" selected="selected">Choose an Option</option> -->
+    <option value="All" selected="selected">All Characters</option>
+    <option value="Male">Male Characters</option>
+    <option value="Female">Female Characters</option>
+	
+    <!--
+	<option value="testing">Testing Products</option>
+	<option value="restricted">Restricted Products</option> -->
+	
+  </br>
+</select>
+<div id="selected">
+Selected: All Characters<br><br>
+</div>
+<input id="Status" type=checkbox>Show Actor&nbsp;&nbsp;</input>
+<input id="ShowSKU" type=checkbox>Show Gender</input>
+<div id="showphaseout">
+
+</div>
+<div id="searchWrapper">
+	  <!--<img id="resetButton" type="button" onclick="reset()" alt="Reset!"/>-->
+      <img id="resetButton" src="resources/refresh.png" onclick="reset()" alt="Reset!"/>
+      <label for="nameSearch">Search</label>
+      <input type="text" id="search" name="nameSearch" placeholder="Type a Name (i.e. Stark)"
+	  onKeyPress="search(this.value)" onKeyUp="search(this.value)"/>
+      <div id="searchResults">
+		<!--<a href="javascript:show('01t30000006QtIFAA0')">Test</a><br/></div>-->
+</div>
+
+
+
+<script>
+</script>
+
+<!-- load the d3.js library -->	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="data/data.json"></script>
+<script>
+/*
+  <option value="all">All Non-Obsolete Products</option>
+    <option value="active">Active Products</option>
+    <option value="phase">Phase Out Products</option>
+    <option value="testing">Testing Products</option>
+	<option value="restricted">Restricted Products</option>
+*/
+
+var id_map = {};
+var search_map = {};
+var last = null;
+var thisTree;
+
+function treeSelector(value) {
+	var obj = document.getElementById("selected");
+	if (value == "All") {
+		obj.innerHTML = "Selected: All Characters<br><br>";
+		thisTree = all;
+	} else if  (value == "Male"){
+		obj.innerHTML = "Selected: Male Characters<br><br>";
+		thisTree = male;
+	} else if  (value == "Female"){
+		obj.innerHTML = "Selected: Female Characters<br><br>";
+		thisTree = female;
+	}
+	/*
+	} else if  (value == "testing"){
+		obj.innerHTML = "Selected: Testing Products<br><br>";
+		thisTree = testing;
+	} else if  (value == "restricted"){
+		obj.innerHTML = "Selected: Restricted Products<br><br>";
+		thisTree = restricted
+	} */
+	
+	id_map= {};
+	search_map = {};
+	generateIDMap(thisTree);
+	generateTree(thisTree);
+}
+
+function generateIDMap(node, parent_id) {
+    //var filteredId = person.id.replace("BURKE", "");
+    id_map[node.id] = {name: node.name, id: node.id, parent_id: parent_id};
+    //if (fedId_to_load && person.federationidentifier === fedId_to_load){
+     //   id_to_load = person.id;
+    //}
+	if (node.children) {
+		for(var i = 0; i < node.children.length; i++) {
+			generateIDMap(node.children[i], node.id);
+		}
+	} else {
+		search_map[node.id] = {name: node.name, id: node.id, parent_id: parent_id, sku: node.status};
+	}
+	var obj = document.getElementById("searchResults");
+	//obj.innerHTML = id_map
+}
+
+
+// Set the dimensions and margins of the diagram
+var margin, width, height, svg, i, duration, root, treemap;
+duration = 750;
+
+//generateTree(all);
+generateIDMap(all);
+generateTree(all);
+
+
+function generateTree(treeData) {
+
+// Set the dimensions and margins of the diagram
+ margin = {top: 20, right: 90, bottom: 30, left: 90},
+    width = 1400 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+ i = 0,
+    duration = 750;
+	
+// append the svg object to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+d3.select("svg").remove();
+svg = d3.select("body").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate("
+          + margin.left + "," + margin.top + ")");
+
+
+
+// declares a tree layout and assigns the size
+treemap = d3.tree().size([height, width]);
+
+// Assigns parent, children, height, depth
+root = d3.hierarchy(treeData, function(d) { return d.children; });
+root.x0 = height / 2;
+root.y0 = 0;
+
+// Collapse after the second level
+root.children.forEach(collapse);
+
+update(root);
+}
+
+// Collapse the node and all it's children
+function collapse(d) {
+  if(d.children) {
+    d._children = d.children
+    d._children.forEach(collapse)
+    d.children = null
+  }
+}
+
+function update(source) {
+
+  // Assigns the x and y position for the nodes
+  var treeData = treemap(root);
+
+  // Compute the new tree layout.
+  var nodes = treeData.descendants(),
+      links = treeData.descendants().slice(1);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d){ d.y = d.depth * 180});
+
+  // ****************** Nodes section ***************************
+
+  // Update the nodes...
+  var node = svg.selectAll('g.node')
+      .data(nodes, function(d) {return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append('g')
+      .attr('class', 'node')
+	  .attr("id", function(d) { return  d.data.id })
+	  .attr('sku',function(d){return d.data.SKU})
+      .attr("transform", function(d) {
+        return "translate(" + source.y0 + "," + source.x0 + ")";
+    })
+    .on('click', click);
+
+  // Add Circle for the nodes
+  nodeEnter.append('circle')
+      .attr('class', 'node')
+      .attr('r', 1e-6)
+      .style("fill", function(d) {
+          return d._children ? "lightsteelblue" : "#fff";
+      });
+
+  // Add labels for the nodes
+  var showStatus = document.getElementById("Status").checked;
+  var showSKU = document.getElementById("ShowSKU").checked;
+ // if(document.getElementById("Status").checked){
+    nodeEnter.append('text')
+      .attr("dy", ".35em")
+      .attr("x", function(d) {
+          return d.children || d._children ? -13 : 13;
+      })
+      .attr("text-anchor", function(d) {
+          return d.children || d._children ? "end" : "start";
+      })
+      .text(function(d) { 
+		if (d.data.status == null) {
+			return d.data.name
+		} else {
+			var myString = d.data.name;
+			if (showSKU) {
+				myString = "["+d.data.sku+"] " + myString;
+			}	
+			if (showStatus) {
+				myString  = "["+d.data.status+"] " + myString;
+			}
+			return myString
+		}
+		});
+  /*} /*else {
+  
+  nodeEnter.append('text')
+      .attr("dy", ".35em")
+      .attr("x", function(d) {
+          return d.children || d._children ? -13 : 13;
+      })
+      .attr("text-anchor", function(d) {
+          return d.children || d._children ? "end" : "start";
+      })
+      .text(function(d) { return d.data.name; });
+  }*/
+	  
+  // UPDATE
+  var nodeUpdate = nodeEnter.merge(node);
+
+  // Transition to the proper position for the node
+  nodeUpdate.transition()
+    .duration(duration)
+    .attr("transform", function(d) { 
+        return "translate(" + d.y + "," + d.x + ")";
+     });
+
+  // Update the node attributes and style
+  nodeUpdate.select('circle.node')
+    .attr('r', 5)
+    .style("fill", function(d) {
+        return d._children ? "lightsteelblue" : "#fff";
+    })
+    .attr('cursor', 'pointer');
+
+
+  // Remove any exiting nodes
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) {
+          return "translate(" + source.y + "," + source.x + ")";
+      })
+      .remove();
+
+  // On exit reduce the node circles size to 0
+  nodeExit.select('circle')
+    .attr('r', 1e-6);
+
+  // On exit reduce the opacity of text labels
+  nodeExit.select('text')
+    .style('fill-opacity', 1e-6);
+
+  // ****************** links section ***************************
+
+  // Update the links...
+  var link = svg.selectAll('path.link')
+      .data(links, function(d) { return d.id; });
+
+  // Enter any new links at the parent's previous position.
+  var linkEnter = link.enter().insert('path', "g")
+      .attr("id", function(d) {
+		  return d.data.id;//"s" + d.source.id + "-s" + d.target.id;
+	  })
+      .attr("class", "link")
+      .attr('d', function(d){
+        var o = {x: source.x0, y: source.y0}
+        return diagonal(o, o)
+      });
+
+  // UPDATE
+  var linkUpdate = linkEnter.merge(link);
+
+  // Transition back to the parent element position
+  linkUpdate.transition()
+      .duration(duration)
+      .attr('d', function(d){ return diagonal(d, d.parent) });
+
+  // Remove any exiting links
+  var linkExit = link.exit().transition()
+      .duration(duration)
+      .attr('d', function(d) {
+        var o = {x: source.x, y: source.y}
+        return diagonal(o, o)
+      })
+      .remove();
+
+  // Store the old positions for transition.
+  nodes.forEach(function(d){
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+  // Creates a curved (diagonal) path from parent to the child nodes
+  function diagonal(s, d) {
+	path = "M " + s.y + " " + s.x +
+			"C" + ((s.y + d.y)/2) + " " + s.x + "," +
+			((s.y + d.y)/2) + " " + d.x + "," +
+			d.y + " " + d.x;
+  /*
+    path = `M ${s.y} ${s.x}
+            C ${(s.y + d.y) / 2} ${s.x},
+              ${(s.y + d.y) / 2} ${d.x},
+              ${d.y} ${d.x}`; */
+
+    return path
+  }
+}
+  // Toggle children on click.
+  function click(d) {
+	displayDetails(d)
+    if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+    update(d);
+  }
+
+
+function displayDetails(d) {
+	if (d.data.status == null) {
+		return
+	}
+	var obj = document.getElementById("details");
+	var details = "Name: "+d.data.name + "<br>Actor: "+d.data.status+"<br>Gender: "+d.data.sku
+	obj.innerHTML = details
+}
+
+
+///////////////////////////////////// Path Stuff //////////////////
+
+function show(id) {
+
+    if(id.length <= 1) {
+	return;
+    }
+
+    var target = id_map[id];
+    myPath = [];
+    
+    do {
+		myPath.push(target.id);
+		target = id_map[target.parent_id];
+    } while(target);
+
+    displayPath();
+
+    //window.location.hash = id.substr(1);
+
+    //ga('send', 'event', 'Search', 'Show User', id);
+}
+
+function displayPath() {
+	if(last==null) {
+		last = root;
+		var root_id = myPath.pop();
+		var highlightString = "highlightPath('" + root_id + "','" + myPath[myPath.length - 1] + "')";
+		setTimeout(highlightString, 20);
+    }
+
+    if(last.children){
+	}else	{
+		last.children = last._children;
+		last._children = null;
+		update(last);
+	}
+
+    var next, next_id;
+	next_id = myPath.pop();
+
+
+    if(last.children) {	
+	for(var i = 0; i < last.children.length; i++) {
+	    if(next_id == last.children[i].data.id) {		
+		next = last.children[i];
+		break;
+	    }
+	}
+    }
+    
+    if(next) {
+		var highlightString = "highlightPath('" + last.data.id + "','" + next.data.id + "')";
+		setTimeout(highlightString, 20);
+		last = next;
+		setTimeout(displayPath, 10);
+    } else {
+		displayDetails(last);
+		last = null;	
+    }    
+}
+
+function highlightPath(source_id, target_id) {
+    $("#" + target_id).attr("class", "link highlight");
+	//var source_id = 
+}
+
+function search(e) {
+   // var query = $(e.currentTarget).val().toLowerCase();
+	var query = e.toLowerCase();
+	
+    if(query.length < 2)
+		return $("#searchResults").html("");
+
+    var results = [];
+
+	var searchSKU = false;
+    for(var id in search_map) {
+		if(search_map.hasOwnProperty(id)) {
+		    if(search_map[id].name.toLowerCase().indexOf(query) != -1) {
+				results.push(search_map[id]);
+				
+			} else if (search_map[id].sku.toLowerCase().indexOf(query) != -1) {
+				results.push(search_map[id]);
+				searchSKU = true;
+			}
+		}
+    }
+    //logNumResults(query, results.length);
+
+    var html = "";
+
+    for(var i = 0; i < results.length; i++) {
+		html += "<a href='javascript:show(\"" + results[i].id + "\")'>" + results[i].name;
+		if (searchSKU) {
+			html += " [" + results[i].sku + "]";
+		}
+		html += "</a><br />";
+		if(i > 20) {
+		    html += "...";
+		    break;
+		}
+    }
+
+    $("#searchResults").html(html);
+}
+
+function reset() {
+    if(!root.children) {
+	root.children = root._children;
+	root._children = null;
+    }
+
+    root.children.forEach(function(d) {
+	collapse(d);
+    });
+
+    update(root);
+
+    d3.selectAll('.highlight')
+	.classed('highlight', false);
+}
+
+
+</script>
+<div id="detailsWrapper">
+ <div id="details">
+  Click a character for details!
+ </div>
+</div>
+<div id="dateRefreshedWrapper">
+  <div id="dateRefreshed">
+    Last updated: 9/21/17<br>
+	Creator: <a target='_blank' href="https://www.linkedin.com/in/kevin-dwan-498b529/">Kevin Dwan</a><br>
+  </div>
+</div>
+  <div id="titleNote">
+	Game of Thrones Chart
+	<div id="version">
+		
+	</div>
+  </div>
+
+
+</body>
+<!-- Data Last Updated: 7/28 (added to obfuscator), Logic last updated: 7/21 -->
