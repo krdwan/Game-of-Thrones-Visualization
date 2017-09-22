@@ -20,10 +20,10 @@ var all =
                   "id": "4",
                   "children": [
                     {
-                      "name": "Petry Baelish",
+                      "name": "Petyr Baelish",
                       "sku": "Male",
                       "id": "X36",
-                      "matrix": "X",
+                      "matrix": "Petyr_Baelish",
                       "status": "Aidan Gillen"
                     }
                   ]
@@ -48,7 +48,7 @@ var all =
                       "name": "Ramsay Bolton",
                       "sku": "Male",
                       "id": "X37",
-                      "matrix": "X",
+                      "matrix": "Ramsay_Bolton",
                       "status": "Iwan Rheon"
                     }
                   ]
@@ -67,7 +67,7 @@ var all =
                       "name": "Gregor Clegane",
                       "sku": "Male",
                       "id": "X39",
-                      "matrix": "X",
+                      "matrix": "Gregor_Clegane",
                       "status": "Hafthor Julius Bjornsson"
                     }
                   ]
@@ -86,14 +86,14 @@ var all =
                       "name": "Cersei Lannister",
                       "sku": "Female",
                       "id": "X35",
-                      "matrix": "X",
+                      "matrix": "Cersei_Lannister",
                       "status": "Lena Headey"
                     },
                     {
                       "name": "Tywin Lannister",
                       "sku": "Male",
                       "id": "X38",
-                      "matrix": "X",
+                      "matrix": "Tywin_Lannister",
                       "status": "Charles Dance"
                     }
                   ]
@@ -124,7 +124,7 @@ var all =
                       "name": "Khal Drogo",
                       "sku": "Male",
                       "id": "X28",
-                      "matrix": "X",
+                      "matrix": "Drogo",
                       "status": "Jason Momoa"
                     }
                   ]
@@ -143,7 +143,7 @@ var all =
                       "name": "Ygritte",
                       "sku": "Female",
                       "id": "X26",
-                      "matrix": "X",
+                      "matrix": "Ygritte",
                       "status": "Rose Leslie"
                     }
                   ]
@@ -162,7 +162,7 @@ var all =
                       "name": "Hodor",
                       "sku": "Male",
                       "id": "X27",
-                      "matrix": "X",
+                      "matrix": "Hodor",
                       "status": "Kristian Nairn"
                     }
                   ]
@@ -175,7 +175,7 @@ var all =
                       "name": "Lord Varys",
                       "sku": "Male",
                       "id": "X24",
-                      "matrix": "X",
+                      "matrix": "Varys",
                       "status": "Conleth Hill"
                     }
                   ]
@@ -188,7 +188,7 @@ var all =
                       "name": "Bronn",
                       "sku": "Male",
                       "id": "X25",
-                      "matrix": "X",
+                      "matrix": "Bronn",
                       "status": "Jerome Flynn"
                     }
                   ]
@@ -201,7 +201,7 @@ var all =
                       "name": "Melisandre",
                       "sku": "Female",
                       "id": "X23",
-                      "matrix": "X",
+                      "matrix": "Melisandre",
                       "status": "Carice van Houten"
                     }
                   ]
@@ -226,7 +226,7 @@ var all =
                       "name": "Stannis Baratheon",
                       "sku": "Male",
                       "id": "X34",
-                      "matrix": "X",
+                      "matrix": "Stannis_Baratheon",
                       "status": "Stephen Dillane"
                     }
                   ]
@@ -245,7 +245,7 @@ var all =
                       "name": "Theon Greyjoy",
                       "sku": "Male",
                       "id": "X22",
-                      "matrix": "X",
+                      "matrix": "Theon_Greyjoy",
                       "status": "Alfie Allen"
                     }
                   ]
@@ -264,7 +264,7 @@ var all =
                       "name": "Jaime Lannister",
                       "sku": "Male",
                       "id": "X20",
-                      "matrix": "X",
+                      "matrix": "Jaime_Lannister",
                       "status": "Nikolaj Coster-Waldau"
                     }
                   ]
@@ -283,14 +283,14 @@ var all =
                       "name": "Ellaria Sand",
                       "sku": "Female",
                       "id": "X30",
-                      "matrix": "X",
+                      "matrix": "Ellaria_Sand",
                       "status": "Indira Varma"
                     },
                     {
                       "name": "Nymeria Sand",
                       "sku": "Female",
                       "id": "X32",
-                      "matrix": "X",
+                      "matrix": "Nymeria_Sand",
                       "status": "Jessica Henwick"
                     }
                   ]
@@ -309,7 +309,7 @@ var all =
                       "name": "Podrick Payne",
                       "sku": "Male",
                       "id": "X31",
-                      "matrix": "X",
+                      "matrix": "Podrick_Payne",
                       "status": "Daniel Portman"
                     }
                   ]
@@ -328,21 +328,21 @@ var all =
                       "name": "Loras Tyrell",
                       "sku": "Male",
                       "id": "X33",
-                      "matrix": "X",
+                      "matrix": "Loras_Tyrell",
                       "status": "Finn Jones"
                     },
                     {
                       "name": "Margaery Tyrell",
                       "sku": "Female",
                       "id": "X21",
-                      "matrix": "X",
+                      "matrix": "Margaery_Tyrell",
                       "status": "Natalie Dormer"
                     },
                     {
                       "name": "Olenna Tyrell",
                       "sku": "Female",
                       "id": "X29",
-                      "matrix": "X",
+                      "matrix": "Olenna_Tyrell",
                       "status": "Diana Rigg"
                     }
                   ]
@@ -373,7 +373,7 @@ var all =
                       "name": "Tormund Giantsbane",
                       "sku": "Male",
                       "id": "X13",
-                      "matrix": "X",
+                      "matrix": "Tormund_Giantsbane",
                       "status": "Kristofer Hivju"
                     }
                   ]
@@ -392,14 +392,14 @@ var all =
                       "name": "Davos Seaworth",
                       "sku": "Male",
                       "id": "X9",
-                      "matrix": "X",
+                      "matrix": "Davos_Seaworth",
                       "status": "Liam Cunningham"
                     },
                     {
                       "name": "Missandei",
                       "sku": "Female",
                       "id": "X7",
-                      "matrix": "X",
+                      "matrix": "Missandei",
                       "status": "Nathalie Emmanuel"
                     }
                   ]
@@ -412,7 +412,7 @@ var all =
                       "name": "Daario Naharis",
                       "sku": "Male",
                       "id": "X15",
-                      "matrix": "X",
+                      "matrix": "Daario_Naharis",
                       "status": "Michiel Huisman"
                     }
                   ]
@@ -431,7 +431,7 @@ var all =
                       "name": "Grey Worm",
                       "sku": "Male",
                       "id": "X14",
-                      "matrix": "X",
+                      "matrix": "Grey_Worm",
                       "status": "Jacob Anderson"
                     }
                   ]
@@ -456,7 +456,7 @@ var all =
                       "name": "Sandor Clegane",
                       "sku": "Male",
                       "id": "X11",
-                      "matrix": "X",
+                      "matrix": "Sandor_Clegane",
                       "status": "Rory McCann"
                     }
                   ]
@@ -475,7 +475,7 @@ var all =
                       "name": "Yara Greyjoy",
                       "sku": "Female",
                       "id": "X16",
-                      "matrix": "X",
+                      "matrix": "Yara_Greyjoy",
                       "status": "Gemma Whelan"
                     }
                   ]
@@ -494,7 +494,7 @@ var all =
                       "name": "Tyrion Lannister",
                       "sku": "Male",
                       "id": "X5",
-                      "matrix": "X",
+                      "matrix": "Tyrion_Lannister",
                       "status": "Peter Dinklage"
                     }
                   ]
@@ -513,7 +513,7 @@ var all =
                       "name": "Jorah Mormont",
                       "sku": "Male",
                       "id": "X12",
-                      "matrix": "X",
+                      "matrix": "Jorah_Mormont",
                       "status": "Iain Glen"
                     }
                   ]
@@ -532,28 +532,28 @@ var all =
                       "name": "Catelyn Stark",
                       "sku": "Male",
                       "id": "X19",
-                      "matrix": "X",
+                      "matrix": "Catelyn_Stark",
                       "status": "Michelle Fairley"
                     },
                     {
                       "name": "Eddard Stark",
                       "sku": "Male",
                       "id": "X17",
-                      "matrix": "X",
+                      "matrix": "Eddard_Stark",
                       "status": "Sean Bean"
                     },
                     {
                       "name": "Robb Stark",
                       "sku": "Male",
                       "id": "X18",
-                      "matrix": "X",
+                      "matrix": "Robb_Stark",
                       "status": "Richard Madden"
                     },
                     {
                       "name": "Sansa Stark",
                       "sku": "Female",
                       "id": "X2",
-                      "matrix": "X",
+                      "matrix": "Sansa_Stark",
                       "status": "Sophie Turner"
                     }
                   ]
@@ -566,14 +566,14 @@ var all =
                       "name": "Arya Stark",
                       "sku": "Female",
                       "id": "X4",
-                      "matrix": "X",
+                      "matrix": "Arya_Stark",
                       "status": "Maisie Williams"
                     },
                     {
                       "name": "Jon Snow",
                       "sku": "Male",
                       "id": "X1",
-                      "matrix": "X",
+                      "matrix": "Jon_Snow",
                       "status": "Kit Harington"
                     }
                   ]
@@ -586,7 +586,7 @@ var all =
                       "name": "Bran Stark",
                       "sku": "Male",
                       "id": "X10",
-                      "matrix": "X",
+                      "matrix": "Bran_Stark",
                       "status": "Isaac Hempstead Wright"
                     }
                   ]
@@ -605,7 +605,7 @@ var all =
                       "name": "Daenerys Targaryen",
                       "sku": "Female",
                       "id": "X3",
-                      "matrix": "X",
+                      "matrix": "Daenerys_Targaryen",
                       "status": "Emilia Clarke"
                     }
                   ]
@@ -624,7 +624,7 @@ var all =
                       "name": "Samwell Tarly",
                       "sku": "Male",
                       "id": "X8",
-                      "matrix": "X",
+                      "matrix": "Samwell_Tarly",
                       "status": "John Bradley West"
                     }
                   ]
@@ -643,7 +643,7 @@ var all =
                       "name": "Brienne of Tarth",
                       "sku": "Female",
                       "id": "X6",
-                      "matrix": "X",
+                      "matrix": "Brienne_of_Tarth",
                       "status": "Gwendoline Christie"
                     }
                   ]
@@ -678,10 +678,10 @@ var male =
                   "id": "4",
                   "children": [
                     {
-                      "name": "Petry Baelish",
+                      "name": "Petyr Baelish",
                       "sku": "Male",
                       "id": "X36",
-                      "matrix": "X",
+                      "matrix": "Petyr_Baelish",
                       "status": "Aidan Gillen"
                     }
                   ]
@@ -706,7 +706,7 @@ var male =
                       "name": "Ramsay Bolton",
                       "sku": "Male",
                       "id": "X37",
-                      "matrix": "X",
+                      "matrix": "Ramsay_Bolton",
                       "status": "Iwan Rheon"
                     }
                   ]
@@ -725,7 +725,7 @@ var male =
                       "name": "Gregor Clegane",
                       "sku": "Male",
                       "id": "X39",
-                      "matrix": "X",
+                      "matrix": "Gregor_Clegane",
                       "status": "Hafthor Julius Bjornsson"
                     }
                   ]
@@ -744,7 +744,7 @@ var male =
                       "name": "Tywin Lannister",
                       "sku": "Male",
                       "id": "X38",
-                      "matrix": "X",
+                      "matrix": "Tywin_Lannister",
                       "status": "Charles Dance"
                     }
                   ]
@@ -775,7 +775,7 @@ var male =
                       "name": "Khal Drogo",
                       "sku": "Male",
                       "id": "X28",
-                      "matrix": "X",
+                      "matrix": "Drogo",
                       "status": "Jason Momoa"
                     }
                   ]
@@ -794,7 +794,7 @@ var male =
                       "name": "Hodor",
                       "sku": "Male",
                       "id": "X27",
-                      "matrix": "X",
+                      "matrix": "Hodor",
                       "status": "Kristian Nairn"
                     }
                   ]
@@ -807,7 +807,7 @@ var male =
                       "name": "Lord Varys",
                       "sku": "Male",
                       "id": "X24",
-                      "matrix": "X",
+                      "matrix": "Varys",
                       "status": "Conleth Hill"
                     }
                   ]
@@ -820,7 +820,7 @@ var male =
                       "name": "Bronn",
                       "sku": "Male",
                       "id": "X25",
-                      "matrix": "X",
+                      "matrix": "Bronn",
                       "status": "Jerome Flynn"
                     }
                   ]
@@ -845,7 +845,7 @@ var male =
                       "name": "Stannis Baratheon",
                       "sku": "Male",
                       "id": "X34",
-                      "matrix": "X",
+                      "matrix": "Stannis_Baratheon",
                       "status": "Stephen Dillane"
                     }
                   ]
@@ -864,7 +864,7 @@ var male =
                       "name": "Theon Greyjoy",
                       "sku": "Male",
                       "id": "X22",
-                      "matrix": "X",
+                      "matrix": "Theon_Greyjoy",
                       "status": "Alfie Allen"
                     }
                   ]
@@ -883,7 +883,7 @@ var male =
                       "name": "Jaime Lannister",
                       "sku": "Male",
                       "id": "X20",
-                      "matrix": "X",
+                      "matrix": "Jaime_Lannister",
                       "status": "Nikolaj Coster-Waldau"
                     }
                   ]
@@ -902,7 +902,7 @@ var male =
                       "name": "Podrick Payne",
                       "sku": "Male",
                       "id": "X31",
-                      "matrix": "X",
+                      "matrix": "Podrick_Payne",
                       "status": "Daniel Portman"
                     }
                   ]
@@ -921,7 +921,7 @@ var male =
                       "name": "Loras Tyrell",
                       "sku": "Male",
                       "id": "X33",
-                      "matrix": "X",
+                      "matrix": "Loras_Tyrell",
                       "status": "Finn Jones"
                     }
                   ]
@@ -952,7 +952,7 @@ var male =
                       "name": "Tormund Giantsbane",
                       "sku": "Male",
                       "id": "X13",
-                      "matrix": "X",
+                      "matrix": "Tormund_Giantsbane",
                       "status": "Kristofer Hivju"
                     }
                   ]
@@ -971,7 +971,7 @@ var male =
                       "name": "Davos Seaworth",
                       "sku": "Male",
                       "id": "X9",
-                      "matrix": "X",
+                      "matrix": "Davos_Seaworth",
                       "status": "Liam Cunningham"
                     }
                   ]
@@ -984,7 +984,7 @@ var male =
                       "name": "Daario Naharis",
                       "sku": "Male",
                       "id": "X15",
-                      "matrix": "X",
+                      "matrix": "Daario_Naharis",
                       "status": "Michiel Huisman"
                     }
                   ]
@@ -1003,7 +1003,7 @@ var male =
                       "name": "Grey Worm",
                       "sku": "Male",
                       "id": "X14",
-                      "matrix": "X",
+                      "matrix": "Grey_Worm",
                       "status": "Jacob Anderson"
                     }
                   ]
@@ -1028,7 +1028,7 @@ var male =
                       "name": "Sandor Clegane",
                       "sku": "Male",
                       "id": "X11",
-                      "matrix": "X",
+                      "matrix": "Sandor_Clegane",
                       "status": "Rory McCann"
                     }
                   ]
@@ -1047,7 +1047,7 @@ var male =
                       "name": "Tyrion Lannister",
                       "sku": "Male",
                       "id": "X5",
-                      "matrix": "X",
+                      "matrix": "Tyrion_Lannister",
                       "status": "Peter Dinklage"
                     }
                   ]
@@ -1066,7 +1066,7 @@ var male =
                       "name": "Jorah Mormont",
                       "sku": "Male",
                       "id": "X12",
-                      "matrix": "X",
+                      "matrix": "Jorah_Mormont",
                       "status": "Iain Glen"
                     }
                   ]
@@ -1085,21 +1085,21 @@ var male =
                       "name": "Catelyn Stark",
                       "sku": "Male",
                       "id": "X19",
-                      "matrix": "X",
+                      "matrix": "Catelyn_Stark",
                       "status": "Michelle Fairley"
                     },
                     {
                       "name": "Eddard Stark",
                       "sku": "Male",
                       "id": "X17",
-                      "matrix": "X",
+                      "matrix": "Eddard_Stark",
                       "status": "Sean Bean"
                     },
                     {
                       "name": "Robb Stark",
                       "sku": "Male",
                       "id": "X18",
-                      "matrix": "X",
+                      "matrix": "Robb_Stark",
                       "status": "Richard Madden"
                     }
                   ]
@@ -1112,7 +1112,7 @@ var male =
                       "name": "Jon Snow",
                       "sku": "Male",
                       "id": "X1",
-                      "matrix": "X",
+                      "matrix": "Jon_Snow",
                       "status": "Kit Harington"
                     }
                   ]
@@ -1125,7 +1125,7 @@ var male =
                       "name": "Bran Stark",
                       "sku": "Male",
                       "id": "X10",
-                      "matrix": "X",
+                      "matrix": "Bran_Stark",
                       "status": "Isaac Hempstead Wright"
                     }
                   ]
@@ -1144,7 +1144,7 @@ var male =
                       "name": "Samwell Tarly",
                       "sku": "Male",
                       "id": "X8",
-                      "matrix": "X",
+                      "matrix": "Samwell_Tarly",
                       "status": "John Bradley West"
                     }
                   ]
@@ -1182,7 +1182,7 @@ var female =
                       "name": "Cersei Lannister",
                       "sku": "Female",
                       "id": "X35",
-                      "matrix": "X",
+                      "matrix": "Cersei_Lannister",
                       "status": "Lena Headey"
                     }
                   ]
@@ -1213,7 +1213,7 @@ var female =
                       "name": "Ygritte",
                       "sku": "Female",
                       "id": "X26",
-                      "matrix": "X",
+                      "matrix": "Ygritte",
                       "status": "Rose Leslie"
                     }
                   ]
@@ -1232,7 +1232,7 @@ var female =
                       "name": "Melisandre",
                       "sku": "Female",
                       "id": "X23",
-                      "matrix": "X",
+                      "matrix": "Melisandre",
                       "status": "Carice van Houten"
                     }
                   ]
@@ -1257,14 +1257,14 @@ var female =
                       "name": "Ellaria Sand",
                       "sku": "Female",
                       "id": "X30",
-                      "matrix": "X",
+                      "matrix": "Ellaria_Sand",
                       "status": "Indira Varma"
                     },
                     {
                       "name": "Nymeria Sand",
                       "sku": "Female",
                       "id": "X32",
-                      "matrix": "X",
+                      "matrix": "Nymeria_Sand",
                       "status": "Jessica Henwick"
                     }
                   ]
@@ -1283,14 +1283,14 @@ var female =
                       "name": "Margaery Tyrell",
                       "sku": "Female",
                       "id": "X21",
-                      "matrix": "X",
+                      "matrix": "Margaery_Tyrell",
                       "status": "Natalie Dormer"
                     },
                     {
                       "name": "Olenna Tyrell",
                       "sku": "Female",
                       "id": "X29",
-                      "matrix": "X",
+                      "matrix": "Olenna_Tyrell",
                       "status": "Diana Rigg"
                     }
                   ]
@@ -1321,7 +1321,7 @@ var female =
                       "name": "Missandei",
                       "sku": "Female",
                       "id": "X7",
-                      "matrix": "X",
+                      "matrix": "Missandei",
                       "status": "Nathalie Emmanuel"
                     }
                   ]
@@ -1346,7 +1346,7 @@ var female =
                       "name": "Yara Greyjoy",
                       "sku": "Female",
                       "id": "X16",
-                      "matrix": "X",
+                      "matrix": "Yara_Greyjoy",
                       "status": "Gemma Whelan"
                     }
                   ]
@@ -1365,7 +1365,7 @@ var female =
                       "name": "Sansa Stark",
                       "sku": "Female",
                       "id": "X2",
-                      "matrix": "X",
+                      "matrix": "Sansa_Stark",
                       "status": "Sophie Turner"
                     }
                   ]
@@ -1378,7 +1378,7 @@ var female =
                       "name": "Arya Stark",
                       "sku": "Female",
                       "id": "X4",
-                      "matrix": "X",
+                      "matrix": "Arya_Stark",
                       "status": "Maisie Williams"
                     }
                   ]
@@ -1397,7 +1397,7 @@ var female =
                       "name": "Daenerys Targaryen",
                       "sku": "Female",
                       "id": "X3",
-                      "matrix": "X",
+                      "matrix": "Daenerys_Targaryen",
                       "status": "Emilia Clarke"
                     }
                   ]
@@ -1416,7 +1416,7 @@ var female =
                       "name": "Brienne of Tarth",
                       "sku": "Female",
                       "id": "X6",
-                      "matrix": "X",
+                      "matrix": "Brienne_of_Tarth",
                       "status": "Gwendoline Christie"
                     }
                   ]

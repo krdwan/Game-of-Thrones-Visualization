@@ -5,11 +5,11 @@
 .node circle {
   fill: #fff;
   stroke: steelblue;
-  stroke-width: 1.75px;
+  stroke-width: 2px;
 }
 
 .node text {
-  font: 10px sans-serif;
+  font: 12px sans-serif;
 }
 
 .link {
@@ -28,7 +28,7 @@
 }
 
 body {
-	font: 10px sans-serif;
+	font: 12px sans-serif;
 }
 
 #titleNote {
@@ -38,7 +38,7 @@ body {
 	width: 50%;
 	text-align: center;
 	font-weight: bold
-	font: 14px sans-serif;
+	font: 16px sans-serif;
 }
 
 #titleNote {
@@ -47,7 +47,7 @@ body {
 	top: 0px; 
 	padding: 10px;
 	text-align: center;
-	font: 14px sans-serif;
+	font: 16px sans-serif;
 }
 
 #detailsWrapper {
@@ -56,24 +56,24 @@ body {
     text-align: right;
     padding: 10px;
     border-radius: 15px;
-	font: 10px sans-serif;
+	font: 12px sans-serif;
 }
 #details {
     position: relative;
     width: 500px;
     font-size: 12px;
-	font: 10px sans-serif;
+	font: 12px sans-serif;
 }
 #searchWrapper {
     position: fixed;
     top: 10px;
     right: 20px;
     text-align: right;
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 #search {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 #searchResults {
@@ -95,7 +95,7 @@ body {
 #dateRefreshed {
     position: relative;
     width: 500px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 #version {
@@ -106,7 +106,7 @@ body {
 #CatalogSelector {
 	font-weight: normal
 	font: 10px sans-serif;
-	font-size: 10px;
+	font-size: 12px;
 }
 
 #resetButton {
@@ -151,7 +151,7 @@ Selected: All Characters<br><br>
 	  <!--<img id="resetButton" type="button" onclick="reset()" alt="Reset!"/>-->
       <img id="resetButton" src="resources/refresh.png" onclick="reset()" alt="Reset!"/>
       <label for="nameSearch">Search</label>
-      <input type="text" id="search" name="nameSearch" placeholder="Type a Name (i.e. Stark)"
+      <input type="text" id="search" name="nameSearch" placeholder="Type Name (i.e. Stark)"
 	  onKeyPress="search(this.value)" onKeyUp="search(this.value)"/>
       <div id="searchResults">
 		<!--<a href="javascript:show('01t30000006QtIFAA0')">Test</a><br/></div>-->
@@ -464,7 +464,15 @@ function displayDetails(d) {
 		return
 	}
 	var obj = document.getElementById("details");
-	var details = "Name: "+d.data.name + "<br>Actor: "+d.data.status+"<br>Gender: "+d.data.sku
+  var imageString = 'resources/characters/'+d.data.matrix;
+  var details = "<img src='"+imageString+".png"+"'";
+  details += "height='155' width='100' class='userPhoto' "
+  details += "onerror="+'"javascript:this.src='+"'"+imageString+".jpg'"+'"'
+  details += "/><br/>"
+  details += "Name: "+"<a target='_blank' href='http://gameofthrones.wikia.com/wiki/"
+  details += d.data.matrix +"'>"+d.data.name+'</a>';
+  details += "<br>Actor: "+d.data.status+"<br>Gender: "+d.data.sku
+
 	obj.innerHTML = details
 }
 
@@ -596,7 +604,7 @@ function reset() {
 </script>
 <div id="detailsWrapper">
  <div id="details">
-  Click a character for details!
+  Search for a character for details!
  </div>
 </div>
 <div id="dateRefreshedWrapper">
