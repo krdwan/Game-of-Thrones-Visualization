@@ -530,7 +530,7 @@ var all =
                   "children": [
                     {
                       "name": "Catelyn Stark",
-                      "sku": "Male",
+                      "sku": "Female",
                       "id": "X19",
                       "matrix": "Catelyn_Stark",
                       "status": "Michelle Fairley"
@@ -1082,13 +1082,6 @@ var male =
                   "id": "48",
                   "children": [
                     {
-                      "name": "Catelyn Stark",
-                      "sku": "Male",
-                      "id": "X19",
-                      "matrix": "Catelyn_Stark",
-                      "status": "Michelle Fairley"
-                    },
-                    {
                       "name": "Eddard Stark",
                       "sku": "Male",
                       "id": "X17",
@@ -1361,6 +1354,13 @@ var female =
                   "name": "Politician",
                   "id": "24",
                   "children": [
+                    {
+                      "name": "Catelyn Stark",
+                      "sku": "Female",
+                      "id": "X19",
+                      "matrix": "Catelyn_Stark",
+                      "status": "Michelle Fairley"
+                    },
                     {
                       "name": "Sansa Stark",
                       "sku": "Female",

@@ -136,7 +136,7 @@ body {
 <link rel="icon" type="image/png" href="resources/favicon.png" >
 </head>
 <body>
-Use the drop down to filter products by "Status"<br>
+Use the drop down to filter characters by gender<br>
 <select id="CatalogSelector" onchange="treeSelector(this.value)">
  <!-- <option value="0" selected="selected">Choose an Option</option> -->
     <option value="All" selected="selected">All Characters</option>
@@ -481,7 +481,12 @@ function displayDetails(d) {
   details += "/><br/>"
   details += "Name: "+"<a target='_blank' href='http://gameofthrones.wikia.com/wiki/"
   details += d.data.matrix +"'>"+d.data.name+'</a>';
-  details += "<br>Actor: "+d.data.status+"<br>Gender: "+d.data.sku
+  if (d.data.sku == "Male") {
+    details += "<br>Actor: ";
+  } else {
+    details += "<br>Actress: ";
+  }
+  details += d.data.status+"<br>Gender: "+d.data.sku
 
 	obj.innerHTML = details
 }
@@ -619,7 +624,7 @@ function reset() {
 </div>
 <div id="dateRefreshedWrapper">
   <div id="dateRefreshed">
-    Last updated: 9/21/17<br>
+    Last updated: 9/23/17<br>
 	Creator: <a target='_blank' href="https://www.linkedin.com/in/kevin-dwan-498b529/">Kevin Dwan</a><br>
   </div>
 </div>
